@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristian Smadu</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #000000;
+      color: #e0e0e0;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 90%;
+      width: 700px;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .avatar-wrapper {
+      padding: 2px;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      border-radius: 50%;
+      width: 104px;
+      height: 104px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .avatar-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    .avatar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+      color: #ffffff;
+    }
+    p {
+      font-size: 1rem;
+      color: #999;
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    .links {
+      margin-top: 15px;
+    }
+    .links a {
+      color: #e1306c;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    .links a:hover {
+      text-decoration: underline;
+      color: #f56040;
+    }
+    .posts {
+      margin-top: 40px;
+    }
+    .post {
+      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #111111;
+      animation: fadeInUp 0.6s ease-in-out forwards;
+      border: 1px solid #222222;
+      transition: background-color 0.3s ease;
+    }
+    .post:hover {
+      background-color: #151515;
+    }
+    .post-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      line-height: 1.5;
+      flex-wrap: wrap;
+    }
+    .post-meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 10px 0;
+      line-height: 1.4;
+    }
+    .company-icon, .purdue-icon {
+      width: 32px;
+      height: 32px;
+      vertical-align: middle;
+      filter: brightness(0.8);
+      object-fit: contain;
+      background-color: #111111;
+      border-radius: 4px;
+      padding: 2px;
+      flex-shrink: 0;
+    }
+
+    .post p {
+      margin: 10px 0 0 0;
+      line-height: 1.5;
+    }
+
+    /* Splash Screen Styles */
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #000000;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease-out;
+    }
+    #splash.fade-out {
+      opacity: 0;
+    }
+    #splash-text {
+      font-size: 2rem;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      border-right: 2px solid #dc2743;
+      overflow: hidden;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <div id="splash-text"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="avatar-wrapper">
+        <div class="avatar-container">
+          <img src="https://disco.discowd.com/r/3a01.jpeg.jpeg" alt="Cristian Smadu" class="avatar" />
+        </div>
+      </div>
+      <div>
+        <h1>Cristian Smadu</h1>
+        <p>
+            Founder & CEO @ Alcri Technologies | Cybersecurity & Network Engineering @ Purdue University
+        </p>
+        <p>
+          Passionate about cybersecurity, AI, and full-stack development.
+          Cybersecurity professional studying at Purdue University, specializing in network security, ethical hacking, and cloud-based solutions. Founder of Alcri Technologies, a next-gen cloud platform designed to make deploying anything online effortless.
+        </p>
+        <div class="links">
+          <a href="https://www.instagram.com/chris.crs8/">Instagram</a>
+          <a href="https://www.linkedin.com/in/cristian-smadu/">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="posts">
+      <div class="post">
+        <div class="post-title">
+          <img src="https://yt3.googleusercontent.com/IkG1MgdltImzkl1CifA9MqpKCAiytj6k4ORzxB23YQj3haG4XETCozha6uQtz4KQoDSs7kh2Lg=s900-c-k-c0x00ffffff-no-rj" alt="HackerOne" class="company-icon" />
+          <span>Security Researcher - HackerOne</span>
+        </div>
+        <div class="post-meta">Nov 2024 - Present • 4 mos • Remote</div>
+        <p>
+          Freelance security researcher focusing on vulnerability assessments and
+          penetration testing.
+        </p>
+      </div>
+      <div class="post">
+        <div class="post-title">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl4pVHiFY78AvJD6EXIkgECx-osQH7BuYisQ&s" alt="OPSWAT" class="company-icon" />
+          <span>Cybersecurity Engineer Intern - OPSWAT</span>
+        </div>
+        <div class="post-meta">Oct 2023 - Nov 2023 • 2 mos • Timișoara, Romania</div>
+        <p>
+          Developed an advanced Docker vulnerability assessment tool to comply with
+          OPSWAT's security standards.
+        </p>
+      </div>
+      <div class="post">
+        <div class="post-title">
+          <img src="https://disco.discowd.com/r/4fu2.jpeg.jpeg" alt="Alcri Technologies" class="company-icon" />
+          <span>CEO - Alcri Technologies</span>
+        </div>
+        <div class="post-meta">Oct 2024 - Present • 5 mos • Remote</div>
+        <p>
+          Leading Alcri Technologies, focusing on cloud computing and cybersecurity
+          innovations.
+        </p>
+      </div>
+      <div class="post">
+        <div class="post-title">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1200px-Purdue_Boilermakers_logo.svg.png" alt="Purdue" class="company-icon" />
+          <span>Polytechnic Ambassador - Purdue University</span>
+        </div>
+        <div class="post-meta">Jan 2025 - Present • 2 mos • West Lafayette, IN</div>
+        <p>
+          Representing Purdue Polytechnic Institute, engaging with students, industry
+          leaders, and academics.
+        </p>
+      </div>
+      <div class="post">
+        <div class="post-title">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1200px-Purdue_Boilermakers_logo.svg.png" alt="Purdue" class="company-icon" />
+          <span>Student - Purdue University</span>
+        </div>
+        <div class="post-meta">Aug 2024 - Present • West Lafayette, IN</div>
+        <p>
+          Double majoring in Cybersecurity &amp; Network Engineering Technology.
+        </p>
+      </div>
+      <div class="post">
+        <div class="post-title">
+          <img src="https://img.electronicdesign.com/files/base/ebm/electronicdesign/image/2021/01/elektrobit_logo.5fff18c522d6e.png?auto=format%2Ccompress&w=640&width=640" alt="Elektrobit" class="company-icon" />
+          <span>Cybersecurity Help Desk &amp; Engineer Intern - Elektrobit</span>
+        </div>
+        <div class="post-meta">Jun 2023 - Jul 2023 • 2 mos • Timișoara, Romania</div>
+        <p>
+          Provided cybersecurity support and implemented security enhancements.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const splashTextElement = document.getElementById("splash-text");
+      const splashElement = document.getElementById("splash");
+      const text = "Hey there, I'm Cristian!";
+      let index = 0;
+
+      function type() {
+        if (index < text.length) {
+          splashTextElement.textContent += text.charAt(index);
+          index++;
+          setTimeout(type, 100);
+        } else {
+          setTimeout(() => {
+            splashElement.classList.add("fade-out");
+            setTimeout(() => {
+              splashElement.style.display = "none";
+            }, 500);
+          }, 1000);
+        }
+      }
+
+      type();
+    });
+  </script>
+</body>
+</html>
