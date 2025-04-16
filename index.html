@@ -1,2292 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HIRE ME! | smadu.net</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Updated DedSec favicon -->
-  <link rel="icon" href="https://orig00.deviantart.net/5a92/f/2016/273/9/0/dedsec_dizzy_360_by_junguler-dajesam.gif" type="image/gif">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='24' fill='white'/%3E%3C/svg%3E">
+  <title>Cristian Smadu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <style>
-    /* Global Styles */
     :root {
-      /* Black Hat Color Palette */
-      --htb-primary: #00c8ff; /* Cyan accent color */
-      --htb-secondary: #111419; /* Dark card background */
-      --htb-dark: #000000; /* Black background */
-      --htb-darker: #000000; /* Black overlay */
-      --htb-text: #ffffff; /* White text */
-      --htb-light-text: #f1f1f1; /* Light grey text */
-      --htb-highlight: #00c8ff; /* Cyan highlight */
-      --htb-danger: #ff4747; /* Red accent */
-      --htb-info: #00c8ff; /* Cyan info */
-      --htb-warning: #ff9d00; /* Orange warning */
-      --htb-success: #00c8ff; /* Cyan success */
-      --htb-border: #1a2332; /* Border color */
-      --htb-card-bg: #0c0f14; /* Card background */
-      --htb-terminal-bg: #0a0d11; /* Terminal background */
-      
-      /* Skill colors - diverse palette */
-      --skill-color-1: #FF5733; /* Red-Orange */
-      --skill-color-2: #FFC300; /* Yellow */
-      --skill-color-3: #36D399; /* Green */
-      --skill-color-4: #00C8FF; /* Cyan */
-      --skill-color-5: #7B68EE; /* Purple */
-      --skill-color-6: #FF69B4; /* Pink */
-      --skill-color-7: #FF8C00; /* Dark Orange */
-      --skill-color-8: #20B2AA; /* Light Sea Green */
-      --skill-color-9: #BA55D3; /* Medium Orchid */
-      --skill-color-10: #32CD32; /* Lime Green */
-      --skill-color-11: #FF6347; /* Tomato */
-      --skill-color-12: #4169E1; /* Royal Blue */
-      --skill-color-13: #FFD700; /* Gold */
-      --skill-color-14: #8A2BE2; /* Blue Violet */
-      --skill-color-15: #FF4500; /* Orange Red */
-      --skill-color-16: #00FA9A; /* Medium Spring Green */
-      --skill-color-17: #F08080; /* Light Coral */
-      --skill-color-18: #00BFFF; /* Deep Sky Blue */
-      --skill-color-19: #FF00FF; /* Magenta */
-      --skill-color-20: #1E90FF; /* Dodger Blue */
-      --skill-color-21: #ADFF2F; /* Green Yellow */
-      --skill-color-22: #FF1493; /* Deep Pink */
-      --skill-color-23: #7FFF00; /* Chartreuse */
-      --skill-color-24: #FF00FF; /* Fuchsia */
-      --skill-color-25: #40E0D0; /* Turquoise */
-      --skill-color-26: #FF7F50; /* Coral */
-      --skill-color-27: #6495ED; /* Cornflower Blue */
+      /* Core theme */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f8f8;
+      --text-primary: #000000;
+      --text-secondary: #555555;
+      --border: rgba(0, 0, 0, 0.06);
+      --card-bg: #ffffff;
+      --tag-bg: #f5f5f5;
+      --section-gap: 100px;
+      --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     }
     
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
-      cursor: none !important;
-      height: 100%;
-    }
-    
-    /* Custom cursor for all elements */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      cursor: none !important;
-    }
-    
-    /* Simple Bitcoin cursor positioned exactly at cursor location */
-    .bitcoin-cursor {
-      position: fixed;
-      width: 35px;
-      height: 35px;
-      background-image: url('https://images.vexels.com/media/users/3/131773/isolated/svg/790c78d39fd853ae72167411aa11d727.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
-      pointer-events: none;
-      z-index: 99999;
-      transform-origin: center center;
-    }
-    
-    /* Custom text selection */
-    ::selection {
-      background-color: var(--htb-primary);
-      color: var(--htb-darker);
-      text-shadow: 0 0 5px rgba(0, 200, 255, 0.8);
-    }
-    
-    ::-moz-selection {
-      background-color: var(--htb-primary);
-      color: var(--htb-darker);
-      text-shadow: 0 0 5px rgba(0, 200, 255, 0.8);
     }
     
     body {
-      background-color: var(--htb-dark);
-      color: var(--htb-text);
-      font-family: 'Fira Code', monospace;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px;
     }
     
-    /* Subtle grid background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(9, 12, 15, 0.97) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(9, 12, 15, 0.97) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: -1;
-      opacity: 0.7; /* Dimmed background */
-    }
-    
-    /* Global glitch effect */
-    .global-glitch-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a2f7c9d8-a913-4273-847f-705be41395df/da622hx-09459178-ea7c-4c3d-8021-20c355bb39d5.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2EyZjdjOWQ4LWE5MTMtNDI3My04NDdmLTcwNWJlNDEzOTVkZlwvZGE2MjJoeC0wOTQ1OTE3OC1lYTdjLTRjM2QtODAyMS0yMGMzNTViYjM5ZDUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.cQMuFlvGD4lfnLnLUfPxmdtojfv7hMxUVmVamRrF6lc');
-      background-size: cover;
-      background-position: center;
-      z-index: 9998;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.1s;
-      mix-blend-mode: overlay;
-    }
-    
-    /* Card glitch overlay */
-    .card-glitch-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a2f7c9d8-a913-4273-847f-705be41395df/da622hx-09459178-ea7c-4c3d-8021-20c355bb39d5.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2EyZjdjOWQ4LWE5MTMtNDI3My04NDdmLTcwNWJlNDEzOTVkZlwvZGE2MjJoeC0wOTQ1OTE3OC1lYTdjLTRjM2QtODAyMS0yMGMzNTViYjM5ZDUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.cQMuFlvGD4lfnLnLUfPxmdtojfv7hMxUVmVamRrF6lc');
-      background-size: cover;
-      background-position: center;
-      z-index: 10;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-      border-radius: 4px;
-    }
-    
-    .card-glitching .card-glitch-overlay {
-      opacity: 0.85;
-    }
-    
-    /* Severe glitch effect for text and elements */
-    @keyframes severe-glitch {
-      0%, 100% { transform: translate(0); filter: brightness(1); }
-      5% { transform: translate(-25px, 5px); filter: brightness(1.3) hue-rotate(90deg); }
-      10% { transform: translate(15px, -10px); filter: brightness(0.8) hue-rotate(180deg); }
-      15% { transform: translate(-10px, -20px); filter: brightness(1.5) hue-rotate(270deg); }
-      20% { transform: translate(8px, 15px); filter: brightness(0.7) hue-rotate(0deg); }
-      25% { transform: translate(-15px, 10px); filter: brightness(1.2) hue-rotate(45deg); }
-      30% { transform: translate(12px, -5px); filter: brightness(0.9) hue-rotate(135deg); }
-      35% { transform: translate(-8px, -10px); filter: brightness(1.4) hue-rotate(225deg); }
-      40% { transform: translate(10px, 8px); filter: brightness(0.6) hue-rotate(315deg); }
-      45% { transform: translate(-12px, 3px); filter: brightness(1.3) hue-rotate(90deg); }
-      50% { transform: translate(6px, -6px); filter: brightness(0.8) hue-rotate(180deg); }
-      55% { transform: translate(-9px, -15px); filter: brightness(1.4) hue-rotate(270deg); }
-      60% { transform: translate(15px, 10px); filter: brightness(0.7) hue-rotate(0deg); }
-      65% { transform: translate(-10px, 8px); filter: brightness(1.2) hue-rotate(45deg); }
-      70% { transform: translate(6px, -8px); filter: brightness(0.9) hue-rotate(135deg); }
-      75% { transform: translate(-7px, -5px); filter: brightness(1.3) hue-rotate(225deg); }
-      80% { transform: translate(12px, 4px); filter: brightness(0.8) hue-rotate(315deg); }
-      85% { transform: translate(-15px, 8px); filter: brightness(1.4) hue-rotate(90deg); }
-      90% { transform: translate(9px, -12px); filter: brightness(0.7) hue-rotate(180deg); }
-      95% { transform: translate(-7px, 5px); filter: brightness(1.2) hue-rotate(270deg); }
-    }
-    
-    @keyframes shift-text {
-      0%, 100% { text-shadow: none; }
-      10% { text-shadow: -8px 0 0 rgba(255, 0, 0, 0.7), 8px 0 0 rgba(0, 255, 255, 0.7); }
-      20% { text-shadow: 3px 0 0 rgba(255, 0, 255, 0.7), -3px 0 0 rgba(0, 255, 0, 0.7); }
-      30% { text-shadow: -5px 0 0 rgba(0, 0, 255, 0.7), 5px 0 0 rgba(255, 255, 0, 0.7); }
-      40% { text-shadow: 2px 0 0 rgba(255, 0, 128, 0.7), -2px 0 0 rgba(0, 255, 128, 0.7); }
-      50% { text-shadow: -10px 0 0 rgba(128, 0, 255, 0.7), 10px 0 0 rgba(128, 255, 0, 0.7); }
-      60% { text-shadow: 7px 0 0 rgba(0, 128, 255, 0.7), -7px 0 0 rgba(255, 128, 0, 0.7); }
-      70% { text-shadow: -3px 0 0 rgba(128, 255, 255, 0.7), 3px 0 0 rgba(255, 128, 128, 0.7); }
-      80% { text-shadow: 9px 0 0 rgba(255, 255, 128, 0.7), -9px 0 0 rgba(128, 128, 255, 0.7); }
-      90% { text-shadow: -6px 0 0 rgba(128, 255, 128, 0.7), 6px 0 0 rgba(255, 128, 255, 0.7); }
-    }
-    
-    /* Screen shake animation */
-    @keyframes screen-shake {
-      0%, 100% { transform: translateX(0); }
-      10% { transform: translateX(-20px); }
-      20% { transform: translateX(15px); }
-      30% { transform: translateX(-15px); }
-      40% { transform: translateX(10px); }
-      50% { transform: translateX(-10px); }
-      60% { transform: translateX(5px); }
-      70% { transform: translateX(-5px); }
-      80% { transform: translateX(2px); }
-      90% { transform: translateX(-2px); }
-    }
-    
-    .global-glitching {
-      animation: screen-shake 0.5s ease-in-out;
-    }
-    
-    .global-glitching .container {
-      animation: severe-glitch 0.5s ease-in-out;
-    }
-    
-    .global-glitching h1, 
-    .global-glitching .section-title, 
-    .global-glitching .terminal-command,
-    .global-glitching .terminal-prompt,
-    .global-glitching .username,
-    .global-glitching .post-title-text {
-      animation: shift-text 0.3s ease-in-out;
-    }
-    
-    .global-glitching .global-glitch-overlay {
-      opacity: 0.15; /* Dimmed background animation */
-    }
-    
-    /* Scanning line animation - dimmed visibility */
-    .scan-line {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px; /* Thicker line */
-      background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(0, 200, 255, 0.05) 20%,
-        rgba(0, 200, 255, 0.2) 50%, /* Reduced intensity */
-        rgba(0, 200, 255, 0.05) 80%,
-        transparent 100%);
-      z-index: -1;
-      animation: scan 12s linear infinite;
-      box-shadow: 0 0 8px rgba(0, 200, 255, 0.2), 0 0 15px rgba(0, 200, 255, 0.1); /* Reduced glow */
-      opacity: 0.5; /* Reduced opacity */
-      pointer-events: none;
-    }
-    
-    @keyframes scan {
-      0% {
-        top: -10px;
-      }
-      100% {
-        top: 100%;
-      }
-    }
-    
-    /* Multiple scanning lines with different timings */
-    .scan-line-2 {
-      animation-delay: 4s;
-      height: 3px;
-      opacity: 0.4;
-    }
-    
-    .scan-line-3 {
-      animation-delay: 8s;
-      height: 2px;
-      opacity: 0.3;
-    }
-    
-    /* Center pulse for extra effect - dimmed */
-    .center-pulse {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(0, 200, 255, 0.05) 0%, transparent 70%);
-      border-radius: 50%;
-      opacity: 0;
-      z-index: -1;
-      animation: center-pulse 15s infinite ease-in-out;
-    }
-    
-    @keyframes center-pulse {
-      0%, 100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-      }
-      50% {
-        opacity: 0.2;
-        transform: translate(-50%, -50%) scale(1.5);
-      }
-    }
-    
-    /* Super fast number shuffling animation */
-    .stat-value {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--htb-primary);
-    }
-    
-    .number-shuffle-animation {
-      display: inline-block;
-      animation: none;
-    }
-    
-    /* Terminal glitch animation */
-    .terminal-content {
-      position: relative;
-    }
-    
-    .terminal-glitch-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a2f7c9d8-a913-4273-847f-705be41395df/da622hx-09459178-ea7c-4c3d-8021-20c355bb39d5.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2EyZjdjOWQ4LWE5MTMtNDI3My04NDdmLTcwNWJlNDEzOTVkZlwvZGE2MjJoeC0wOTQ1OTE3OC1lYTdjLTRjM2QtODAyMS0yMGMzNTViYjM5ZDUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.cQMuFlvGD4lfnLnLUfPxmdtojfv7hMxUVmVamRrF6lc');
-      background-size: cover;
-      background-position: center;
-      z-index: 10;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-    
-    .terminal-glitching .terminal-glitch-overlay {
-      opacity: 1;
-    }
-    
-    @keyframes terminal-glitch {
-      0% { transform: translate(0); filter: brightness(1); }
-      10% { transform: translate(-2px, 2px); filter: brightness(1.2); }
-      20% { transform: translate(2px, -2px); filter: brightness(0.8); }
-      30% { transform: translate(-2px, -2px); filter: brightness(1.2); }
-      40% { transform: translate(2px, 2px); filter: brightness(0.9); }
-      50% { transform: translate(-2px, 2px); filter: brightness(1.1); }
-      60% { transform: translate(2px, -2px); filter: brightness(0.8); }
-      70% { transform: translate(-2px, -2px); filter: brightness(1.2); }
-      80% { transform: translate(2px, 2px); filter: brightness(0.9); }
-      90% { transform: translate(-2px, 2px); filter: brightness(1.1); }
-      100% { transform: translate(0); filter: brightness(1); }
-    }
-    
-    .terminal-content.terminal-glitching {
-      animation: terminal-glitch 0.3s ease-in-out;
+    h1, h2, h3, .section-heading, .subtle-section-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
     }
     
     .container {
-      max-width: 90%;
-      width: 800px;
-      padding: 0;
-      margin: 40px 0;
-      animation: fadeIn 0.5s ease-in-out;
+      margin-bottom: var(--section-gap);
+    }
+    
+    a {
+      color: var(--text-primary);
+      text-decoration: none;
       position: relative;
+      transition: opacity 0.2s ease;
     }
     
-    .card-header {
-      position: relative;
-      padding-bottom: 10px;
-      margin-bottom: 15px;
+    a:hover {
+      opacity: 0.7;
     }
     
-    /* Section title styling */
-    .section-title {
-      color: var(--htb-primary);
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* Regular card styling (first profile card) */
-    .header {
-      background-color: var(--htb-secondary);
-      border: 1px solid var(--htb-border);
-      border-radius: 4px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--htb-primary);
-      box-shadow: 
-        0 0 5px rgba(0, 200, 255, 0.5),
-        0 0 10px rgba(0, 200, 255, 0.3);
-    }
-    
-    /* Card with flickering street light neon effect */
-    .neon-card {
-      background-color: var(--htb-secondary);
-      border: 1px solid var(--htb-border);
-      border-radius: 4px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    /* Streetlight neon glow effect */
-    .streetlight {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    
-    /* Neon top bar */
-    .neon-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background-color: var(--htb-primary);
-      box-shadow: 
-        0 0 5px rgba(0, 200, 255, 0.7),
-        0 0 10px rgba(0, 200, 255, 0.5),
-        0 0 20px rgba(0, 200, 255, 0.3);
-      z-index: 1;
-    }
-    
-    /* Light cone effect */
-    .light-cone {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        linear-gradient(180deg, 
-          rgba(0, 200, 255, 0.15) 0%, 
-          rgba(0, 200, 255, 0.05) 30%, 
-          rgba(0, 200, 255, 0.02) 60%, 
-          transparent 100%);
-      opacity: 0.8; /* Dimmed light cone */
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    /* Flickering animations for each card */
-    @keyframes flicker-1 {
-      0%, 100% { opacity: 1; }
-      3%, 4% { opacity: 0.4; }
-      6%, 8% { opacity: 1; }
-      10%, 11% { opacity: 0.4; }
-      20%, 80% { opacity: 1; }
-      83% { opacity: 0.4; }
-      85% { opacity: 1; }
-      90%, 91% { opacity: 0.4; }
-      93% { opacity: 1; }
-      94% { opacity: 0.4; }
-      96% { opacity: 1; }
-    }
-    
-    @keyframes flicker-2 {
-      0%, 100% { opacity: 1; }
-      8%, 9% { opacity: 0.4; }
-      12%, 20% { opacity: 1; }
-      25%, 26% { opacity: 0.4; }
-      28% { opacity: 1; }
-      38%, 40% { opacity: 0.4; }
-      45%, 88% { opacity: 1; }
-      90%, 91% { opacity: 0.4; }
-      94% { opacity: 1; }
-      96% { opacity: 0.4; }
-      98% { opacity: 1; }
-    }
-    
-    @keyframes flicker-3 {
-      0%, 100% { opacity: 1; }
-      15%, 16% { opacity: 0.4; }
-      18%, 28% { opacity: 1; }
-      30% { opacity: 0.4; }
-      35% { opacity: 1; }
-      38%, 39% { opacity: 0.4; }
-      40%, 70% { opacity: 1; }
-      72%, 73% { opacity: 0.4; }
-      75% { opacity: 1; }
-      80%, 81% { opacity: 0.4; }
-      83%, 95% { opacity: 1; }
-    }
-    
-    @keyframes flicker-4 {
-      0%, 100% { opacity: 1; }
-      22%, 23% { opacity: 0.4; }
-      25%, 35% { opacity: 1; }
-      42% { opacity: 0.4; }
-      44% { opacity: 1; }
-      48%, 49% { opacity: 0.4; }
-      50%, 85% { opacity: 1; }
-      88% { opacity: 0.4; }
-      90% { opacity: 1; }
-      95%, 96% { opacity: 0.4; }
-      98% { opacity: 1; }
-    }
-    
-    /* Apply different flicker animations to each card */
-    .flicker-1 .neon-bar, .flicker-1 .light-cone {
-      animation: flicker-1 8s infinite;
-    }
-    
-    .flicker-2 .neon-bar, .flicker-2 .light-cone {
-      animation: flicker-2 12s infinite;
-    }
-    
-    .flicker-3 .neon-bar, .flicker-3 .light-cone {
-      animation: flicker-3 10s infinite;
-    }
-    
-    .flicker-4 .neon-bar, .flicker-4 .light-cone {
-      animation: flicker-4 14s infinite;
-    }
-    
-    .header-content {
-      display: flex;
-      align-items: flex-start;
-      gap: 25px;
-    }
-    
-    .avatar-wrapper {
-      width: 120px;
-      height: 120px;
-      position: relative;
-      flex-shrink: 0;
-    }
-    
-    .avatar-border {
+    a::after {
+      content: '';
       position: absolute;
       width: 100%;
-      height: 100%;
-      border-radius: 6px;
-      background: var(--htb-dark);
-      border: 1px solid var(--htb-primary);
-      z-index: 1;
-      overflow: hidden;
+      height: 1px;
+      bottom: -1px;
+      left: 0;
+      background-color: var(--text-primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
     }
     
-    .avatar-border::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, 
-        transparent 0%, 
-        transparent 40%, 
-        var(--htb-primary) 50%, 
-        transparent 60%, 
-        transparent 100%);
-      z-index: -1;
-      animation: borderRotate 3s linear infinite;
+    a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
     
-    .avatar-container {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: calc(100% - 4px);
-      height: calc(100% - 4px);
-      border-radius: 4px;
-      overflow: hidden;
-      background-color: var(--htb-dark);
-      z-index: 2;
+    /* Modern 2025 Header Layout */
+    .header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
+      gap: 40px;
+      margin-bottom: 140px;
     }
     
     .avatar {
-      width: 100%;
-      height: 100%;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
       object-fit: cover;
-      filter: grayscale(30%) contrast(110%) brightness(70%);
+      filter: grayscale(100%);
+      transition: filter 0.5s ease;
     }
     
-    /* Glitch effect for profile image */
-    .glitch-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
+    .avatar:hover {
+      filter: grayscale(70%);
     }
     
-    .profile-normal {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(30%) contrast(110%) brightness(70%);
-      transition: opacity 0.1s;
-    }
-    
-    .profile-glitch {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      filter: grayscale(30%) contrast(110%) brightness(70%);
-      transition: opacity 0.1s;
-    }
-    
-    .profile-glitch-alt {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      filter: grayscale(30%) contrast(110%) brightness(70%);
-      transition: opacity 0.1s;
-    }
-    
-    .glitching {
-      animation: glitchAnimation 0.3s ease-in-out;
-    }
-    
-    @keyframes glitchAnimation {
-      0% { transform: translate(0); filter: hue-rotate(0); }
-      10% { transform: translate(-2px, 2px); filter: hue-rotate(45deg); }
-      20% { transform: translate(2px, -2px); filter: hue-rotate(90deg); }
-      30% { transform: translate(-2px, -2px); filter: hue-rotate(135deg); }
-      40% { transform: translate(2px, 2px); filter: hue-rotate(180deg); }
-      50% { transform: translate(-2px, 2px); filter: hue-rotate(225deg); }
-      60% { transform: translate(2px, -2px); filter: hue-rotate(270deg); }
-      70% { transform: translate(-2px, -2px); filter: hue-rotate(315deg); }
-      80% { transform: translate(2px, 2px); filter: hue-rotate(360deg); }
-      90% { transform: translate(-2px, 2px); filter: hue-rotate(315deg); }
-      100% { transform: translate(0); filter: hue-rotate(0); }
-    }
-    
-    @keyframes scanlines {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 100%; }
-    }
-    
-    .scanlines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, 
-                  rgba(0, 0, 0, 0) 50%, 
-                  rgba(0, 0, 0, 0.3) 50%);
-      background-size: 100% 4px;
-      z-index: 3;
-      opacity: 0;
-      mix-blend-mode: overlay;
-      pointer-events: none;
-      animation: scanlines 8s linear infinite;
-    }
-    
-    .user-info {
-      flex: 1;
-    }
-    
-    h1 {
-      font-size: 1.8rem;
+    .header-text h1 {
+      font-size: 32px;
       font-weight: 600;
-      margin: 0 0 5px 0;
-      color: var(--htb-light-text);
-      display: flex;
-      align-items: center;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
     }
     
-    .verified {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 10px;
-      background-color: var(--htb-primary);
-      color: var(--htb-darker);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 1px 8px;
-      border-radius: 2px;
-      letter-spacing: 0.5px;
+    .header-text p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
     
-    .username {
-      font-size: 1rem;
-      color: var(--htb-primary);
-      margin-bottom: 12px;
+    /* 2025 Section Heading Style */
+    .section-heading {
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
       font-weight: 500;
-    }
-    
-    .rank {
-      display: inline-block;
-      background-color: var(--htb-terminal-bg);
-      border: 1px solid var(--htb-border);
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      margin-right: 10px;
-      margin-bottom: 10px;
-      color: var(--htb-primary);
-    }
-    
-    .rank-value {
-      font-weight: 600;
-      color: var(--htb-light-text);
-    }
-    
-    .description {
-      margin-top: 15px;
-      color: var(--htb-text);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    
-    /* Truly seamless horizontal scrolling stats bar */
-    .stats-bar {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid var(--htb-border);
-      position: relative;
-    }
-    
-    .stats-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      height: 95px;
-    }
-    
-    .stats-slider {
-      display: flex;
-      position: absolute;
-      width: max-content;
-      transition: transform 0.8s ease-out;
-    }
-    
-    .stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--htb-terminal-bg);
-      border: 1px solid var(--htb-border);
-      border-radius: 4px;
-      padding: 10px;
-      width: 160px;
-      height: 85px;
-      margin-right: 15px;
-      flex-shrink: 0;
-    }
-    
-    .stat-label {
-      font-size: 0.7rem;
-      color: var(--htb-text);
-      margin-top: 5px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      text-align: center;
-    }
-    
-    /* Indicators for stat slideshow */
-    .stat-controls {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-      gap: 10px;
-    }
-    
-    .stat-prev, .stat-next {
-      background: none;
-      border: 1px solid var(--htb-border);
-      padding: 3px 8px;
-      color: var(--htb-primary);
-      border-radius: 3px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .stat-prev:hover, .stat-next:hover {
-      background-color: rgba(0, 200, 255, 0.1);
-    }
-    
-    /* Binary rain animation - larger and more visible */
-    .binary-rain {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 180px; /* Wider rain area */
-      height: 180px; /* Taller rain area */
-      overflow: hidden;
-      opacity: 0.4; /* More visible */
-      pointer-events: none;
-      z-index: 1;
-    }
-    
-    .binary-drop {
-      position: absolute;
-      color: var(--htb-primary);
-      font-family: 'Fira Code', monospace;
-      font-size: 16px; /* Larger text */
-      animation: binary-fall linear infinite;
-      text-shadow: 0 0 5px var(--htb-primary); /* Added glow */
-    }
-    
-    @keyframes binary-fall {
-      0% {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(300%);
-        opacity: 0;
-      }
-    }
-    
-    /* Certifications layout - all badges exactly the same size */
-    .badge-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
       position: relative;
-      z-index: 1;
+      display: inline-block;
     }
     
-    .badge-row-first {
-      /* First row has 3 items */
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      width: 100%;
-    }
-    
-    .badge-row-second {
-      /* Second row has 2 items centered */
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      width: 100%;
-    }
-    
-    .badge {
-      height: 220px;
-      width: 210px; /* Fixed exact width */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--htb-terminal-bg);
-      border: 1px solid var(--htb-border);
-      border-radius: 4px;
-      padding: 20px 15px;
-      position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-align: center;
-      overflow: hidden;
-    }
-    
-    /* Force all badges to be identical */
-    .badge-row-first .badge, 
-    .badge-row-second .badge {
-      height: 220px;
-      width: 210px;
-      flex: none; /* Don't allow flex to change size */
-    }
-    
-    /* Shining animation for certification badges */
-    @keyframes shine {
-      0% {
-        transform: translateX(-100%) translateY(-100%) rotate(30deg);
-      }
-      100% {
-        transform: translateX(100%) translateY(100%) rotate(30deg);
-      }
-    }
-    
-    .badge::before {
+    .section-heading::after {
       content: "";
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: translateX(-100%) translateY(-100%) rotate(30deg);
-      pointer-events: none;
-      opacity: 0;
-    }
-    
-    .badge.shining::before {
-      opacity: 1;
-      animation: shine 1.5s ease-in-out forwards;
-    }
-    
-    .badge:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    }
-    
-    .badge img {
-      width: 60px; /* Larger certification icons */
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-    
-    .badge-title {
-      font-size: 0.85rem; /* Larger text */
-      text-align: center;
-      color: var(--htb-text);
-      font-weight: 500;
-      margin-bottom: 8px;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      max-width: 95%;
-      word-wrap: break-word;
-    }
-    
-    .badge-issuer {
-      font-size: 0.75rem; /* Larger text */
-      text-align: center;
-      color: var(--htb-text);
-      opacity: 0.7;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      max-width: 95%;
-      word-wrap: break-word;
-    }
-    
-    .badge-id {
-      font-size: 0.7rem; /* Larger text */
-      text-align: center;
-      color: var(--htb-primary);
-      opacity: 0.8;
-      max-width: 95%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      word-wrap: break-word;
-    }
-    
-    .post {
-      background-color: var(--htb-card-bg);
-      border: 1px solid var(--htb-border);
-      border-radius: 4px;
-      padding: 15px;
-      margin-bottom: 15px;
-      position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-      z-index: 1;
-    }
-    
-    .post:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    }
-    
-    .post::after {
-      content: "";
-      position: absolute;
-      bottom: -1px;
+      bottom: -8px;
       left: 0;
-      width: 100%;
+      width: 30px;
       height: 1px;
-      background: linear-gradient(90deg, var(--htb-primary) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.2s;
+      background-color: var(--text-primary);
     }
     
-    .post:hover::after {
-      opacity: 1;
+    .subtle-section-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      margin-top: 60px;
+      font-weight: 500;
     }
     
-    .post-title {
+    /* Modern 2025 Profile Layout */
+    .profile-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    
+    .profile-data {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      font-size: 15px;
+    }
+    
+    .profile-item {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
+      flex-direction: column;
+      gap: 4px;
     }
     
-    .company-icon {
-      width: 35px;
-      height: 35px;
-      border-radius: 4px;
-      background-color: var(--htb-terminal-bg);
-      border: 1px solid var(--htb-border);
-      padding: 2px;
-      object-fit: contain;
-      filter: brightness(80%) contrast(110%);
+    .profile-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 13px;
     }
     
-    .post-title-text {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--htb-light-text);
+    .profile-value {
+      color: var(--text-primary);
+      font-weight: 400;
     }
     
-    .post-meta {
-      font-size: 0.75rem;
-      color: var(--htb-text);
-      opacity: 0.7;
-      margin-bottom: 10px;
-      padding-left: 47px;
+    /* Modern 2025 Skills Grid */
+    .skills-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
     }
     
-    .post p {
-      margin: 0;
-      line-height: 1.4;
-      font-size: 0.85rem;
-      color: var(--htb-text);
-      padding-left: 47px;
-    }
-    
-    .skill-list {
+    .skills-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      position: relative;
-      z-index: 1;
     }
     
-    .skill {
-      background-color: var(--htb-terminal-bg);
-      border: 1px solid var(--htb-border);
-      border-radius: 4px;
-      padding: 8px 12px;
-      font-size: 0.8rem;
-      color: var(--htb-text);
-    }
-    
-    /* Colorful skill levels, using custom colors instead of the same blue/yellow */
-    .skill-color-1 { border-left: 3px solid var(--skill-color-1); }
-    .skill-color-2 { border-left: 3px solid var(--skill-color-2); }
-    .skill-color-3 { border-left: 3px solid var(--skill-color-3); }
-    .skill-color-4 { border-left: 3px solid var(--skill-color-4); }
-    .skill-color-5 { border-left: 3px solid var(--skill-color-5); }
-    .skill-color-6 { border-left: 3px solid var(--skill-color-6); }
-    .skill-color-7 { border-left: 3px solid var(--skill-color-7); }
-    .skill-color-8 { border-left: 3px solid var(--skill-color-8); }
-    .skill-color-9 { border-left: 3px solid var(--skill-color-9); }
-    .skill-color-10 { border-left: 3px solid var(--skill-color-10); }
-    .skill-color-11 { border-left: 3px solid var(--skill-color-11); }
-    .skill-color-12 { border-left: 3px solid var(--skill-color-12); }
-    .skill-color-13 { border-left: 3px solid var(--skill-color-13); }
-    .skill-color-14 { border-left: 3px solid var(--skill-color-14); }
-    .skill-color-15 { border-left: 3px solid var(--skill-color-15); }
-    .skill-color-16 { border-left: 3px solid var(--skill-color-16); }
-    .skill-color-17 { border-left: 3px solid var(--skill-color-17); }
-    .skill-color-18 { border-left: 3px solid var(--skill-color-18); }
-    .skill-color-19 { border-left: 3px solid var(--skill-color-19); }
-    .skill-color-20 { border-left: 3px solid var(--skill-color-20); }
-    .skill-color-21 { border-left: 3px solid var(--skill-color-21); }
-    .skill-color-22 { border-left: 3px solid var(--skill-color-22); }
-    .skill-color-23 { border-left: 3px solid var(--skill-color-23); }
-    .skill-color-24 { border-left: 3px solid var(--skill-color-24); }
-    .skill-color-25 { border-left: 3px solid var(--skill-color-25); }
-    .skill-color-26 { border-left: 3px solid var(--skill-color-26); }
-    .skill-color-27 { border-left: 3px solid var(--skill-color-27); }
-    
-    /* Terminal Effect */
-    .terminal-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--htb-border);
-      position: relative;
-      z-index: 1;
-    }
-    
-    .terminal-icon {
-      width: 14px;
-      height: 14px;
-      margin-right: 10px;
-      background-color: var(--htb-danger);
-      border-radius: 50%;
-    }
-    
-    .terminal-title {
-      font-size: 0.85rem;
-      color: var(--htb-text);
-      opacity: 0.7;
-    }
-    
-    .terminal-content {
-      font-size: 0.85rem;
-      line-height: 1.5;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .terminal-prompt {
-      color: var(--htb-primary);
-      margin-right: 10px;
-    }
-    
-    .terminal-command {
-      color: var(--htb-light-text);
-    }
-    
-    .terminal-output {
-      margin: 5px 0 10px 0;
-      padding-left: 15px;
-      color: var(--htb-text);
-    }
-    
-    .terminal-output .highlight {
-      color: var(--htb-primary);
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    @keyframes borderRotate {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-    
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    
-    /* HTB Logo Animation */
-    .htb-logo {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      opacity: 0.3;
-    }
-    
-    #splash {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: var(--htb-darker);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      transition: opacity 0.5s ease-out;
-    }
-    
-    #splash.fade-out {
-      opacity: 0;
-    }
-    
-    .splash-logo {
-      width: 300px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-    
-    .loading-bar {
-      width: 300px;
-      height: 4px;
-      background-color: var(--htb-secondary);
-      border-radius: 2px;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .loading-progress {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 0%;
-      background-color: var(--htb-primary);
-      animation: loading 3s ease-in-out forwards;
-    }
-    
-    @keyframes loading {
-      0% { width: 0%; }
-      50% { width: 70%; }
-      100% { width: 100%; }
-    }
-    
-    .cursor-blink {
+    .skill-tag {
+      background-color: var(--tag-bg);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      color: var(--text-primary);
       display: inline-block;
-      width: 8px;
-      height: 15px;
-      background-color: var(--htb-primary);
-      animation: blink 1s infinite;
-      vertical-align: middle;
-      margin-left: 5px;
+      font-weight: 400;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      border: 1px solid var(--border);
     }
     
-    /* Category Heading for Skills */
-    .skills-category {
-      color: var(--htb-primary);
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-top: 15px;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
-      border-bottom: 1px dashed var(--htb-border);
-      position: relative;
-      z-index: 1;
+    .skill-tag:hover {
+      opacity: 0.7;
+      transform: translateY(-2px);
     }
     
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .avatar-wrapper {
-        margin-bottom: 20px;
-      }
-      
-      .user-info {
-        text-align: center;
-      }
-      
-      .rank {
-        margin-right: 5px;
-      }
-      
-      .badge-row-first, .badge-row-second {
-        flex-direction: column;
-        align-items: center;
-        width: 100% !important;
-      }
-      
-      .badge {
-        max-width: 100% !important;
-      }
-      
-      .binary-rain {
-        display: none;
-      }
-      
-      .light-cone {
-        opacity: 0.5;
-      }
+    /* Modern 2025 Certifications Layout */
+    .certs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
     }
     
-    /* Custom class for certification image */
-    .cert-image {
-      width: 60px; /* Increased size */
-      height: 60px;
+    .cert-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 25px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    }
+    
+    .cert-logo {
+      width: 40px;
+      height: 40px;
       object-fit: contain;
-      margin-bottom: 15px;
+      opacity: 0.9;
+      filter: grayscale(100%);
     }
-
-    /* Enhanced scrollbar for better scrolling experience */
-    ::-webkit-scrollbar {
-      width: 10px;
+    
+    .cert-card:hover .cert-logo {
+      opacity: 1;
     }
-
-    ::-webkit-scrollbar-track {
-      background: var(--htb-darker);
+    
+    .cert-details h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
     }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 200, 255, 0.3);
-      border-radius: 5px;
+    
+    .cert-details p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      letter-spacing: -0.01em;
     }
+    
+    /* Modern 2025 Experience Timeline */
+    .experience-container {
+      position: relative;
+    }
+    
+    .experience-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding: 30px 0;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+    
+    .timeline-meta {
+      align-self: flex-start;
+    }
+    
+    .timeline-dates {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    
+    .timeline-location {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+    
+    .timeline-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+    }
+    
+    .timeline-company {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    
+    .timeline-description {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 30px;
+      background-color: var(--tag-bg);
+      font-size: 12px;
+      font-weight: 500;
+      margin-left: 12px;
+      vertical-align: middle;
+      border: 1px solid var(--border);
+    }
+    
+    /* Modern 2025 Footer */
+    .footer {
+      margin-top: 120px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .footer-copyright {
+      color: var(--text-secondary);
+    }
+    
+    /* Performance optimized styles */
+    
+    @media (max-width: 900px) {
+      body {
+        padding: 40px 20px;
+      }
+      
+      .header {
+        grid-template-columns: 1fr;
+        margin-bottom: 80px;
+      }
+      
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 200, 255, 0.5);
+      
+      .profile-container, 
+      .skills-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .skills-container {
+        gap: 40px;
+      }
+      
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .timeline-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      
+      .certs-container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Custom cursor element -->
-  <div class="bitcoin-cursor"></div>
-
-  <!-- Global glitch overlay for entire site -->
-  <div class="global-glitch-overlay"></div>
-
-  <!-- Scanning lines with enhanced visibility -->
-  <div class="scan-line"></div>
-  <div class="scan-line scan-line-2"></div>
-  <div class="scan-line scan-line-3"></div>
-  
-  <!-- Center pulse for extra effect -->
-  <div class="center-pulse"></div>
-
-  <!-- Splash Screen -->
-  <div id="splash">
-    <!-- Black Hat logo -->
-    <img class="splash-logo" src="https://media1.tenor.com/m/sNIbebDwG_EAAAAd/dedsec.gif" alt="Black Hat Logo">
-    <div class="loading-bar">
-      <div class="loading-progress"></div>
+  <header class="header">
+    <img src="pfp.png" alt="Cristian Smadu" class="avatar" loading="eager" width="90" height="90">
+    <div class="header-text">
+      <h1>Cristian Smadu</h1>
+      <p>Hi, I'm Cristian — founder of <strong>Zyth</strong>. I build AI agents that make cybersecurity easier and smarter for everyone.</p>
     </div>
-  </div>
 
-  <div class="container">
-    <!-- Header card first (normal top border) -->
-    <div class="header" id="profileCard">
-      <!-- Card-specific glitch overlay -->
-      <div class="card-glitch-overlay"></div>
-      
-      <div class="header-content">
-        <div class="avatar-wrapper">
-          <div class="avatar-border"></div>
-          <div class="avatar-container">
-            <div class="glitch-container">
-              <img src="https://disco.discowd.com/r/3a01.jpeg.jpeg" alt="Cristian Smadu" class="profile-normal" id="profile-image" />
-              <img src="https://media1.tenor.com/m/zZ6J8d7epM8AAAAC/dedsec.gif" alt="DedSec" class="profile-glitch" id="profile-glitch" />
-              <img src="https://64.media.tumblr.com/0c7f84d6f9a9ab92f5962fb10da23372/afb1567892658fa1-73/s540x810/6d2f37d1663b9e909da8755935a0a7076ae87ffe.gif" alt="DedSec Alt" class="profile-glitch-alt" id="profile-glitch-alt" />
-              <div class="scanlines" id="profile-scanlines"></div>
-            </div>
-          </div>
+  </header>
+
+  <section class="container">
+    <h2 class="section-heading">Profile</h2>
+    <div class="profile-container">
+      <div class="profile-data">
+        <div class="profile-item">
+          <div class="profile-label">Username</div>
+          <div class="profile-value">@r00tLynx</div>
         </div>
-        <div class="user-info">
-          <h1>Cristian Smadu <span class="verified">Cybersecurity Enthusiast</span></h1>
-          <div class="username">@r00tLynx</div>
-          
-          <div>
-            <span class="rank">Founder <span class="rank-value">Alcri Technologies</span></span>
-            <span class="rank">Student <span class="rank-value">Purdue University</span></span>
-          </div>
-          
-          <p class="description">
-            Cybersecurity professional studying at Purdue University, specializing in network security, ethical hacking, and cloud-based solutions. Founder of Alcri Technologies, a next-gen cloud platform designed to make deploying anything online effortless.
-          </p>
+        <div class="profile-item">
+          <div class="profile-label">Position</div>
+          <div class="profile-value">Founder, Zyth</div>
+        </div>
+        <div class="profile-item">
+          <div class="profile-label">Education</div>
+          <div class="profile-value">Purdue University<br>Majors: Cybersecurity, Network Engineering<br>Minor: Finance</div>
         </div>
       </div>
-      
-      <div class="stats-bar" id="statsBar">
-        <div class="stats-wrapper">
-          <div class="stats-slider" id="statsSlider">
-            <!-- Original stats -->
-            <div class="stat">
-              <div class="stat-value" id="stat1">32</div>
-              <div class="stat-label">Socially Engineered People</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value" id="stat2">24</div>
-              <div class="stat-label">Networks Breached</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value" id="stat3">432</div>
-              <div class="stat-label">People Part of Botnet</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value" id="stat4">14</div>
-              <div class="stat-label">Forums Accounts</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value" id="stat5">0</div>
-              <div class="stat-label">Days Without Stress</div>
-            </div>
-            <!-- Duplicate stats for smooth infinite scroll -->
-            <div class="stat">
-              <div class="stat-value">32</div>
-              <div class="stat-label">Socially Engineered People</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">24</div>
-              <div class="stat-label">Networks Breached</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">432</div>
-              <div class="stat-label">People Part of Botnet</div>
-            </div>
-          </div>
+      <div class="profile-data">
+        <div class="profile-item">
+          <div class="profile-label">Focus</div>
+          <div class="profile-value">Cybersecurity & Network Engineering</div>
         </div>
-        <div class="stat-controls">
-          <button class="stat-prev" id="statPrev">&#8592;</button>
-          <button class="stat-next" id="statNext">&#8594;</button>
+        <div class="profile-item">
+          <div class="profile-label">Location</div>
+          <div class="profile-value">West Lafayette, IN</div>
+        </div>
+        <div class="profile-item">
+          <div class="profile-label">Availability</div>
+          <div class="profile-value">Limited Consulting</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Terminal card with flickering street light effect -->
-    <div class="neon-card" id="terminalCard">
-      <!-- Card-specific glitch overlay -->
-      <div class="card-glitch-overlay"></div>
-      
-      <!-- Street light effect with flickering -->
-      <div class="streetlight flicker-1">
-        <div class="neon-bar"></div>
-        <div class="light-cone"></div>
+  <section class="container">
+    <h2 class="section-heading">Certifications</h2>
+    <div class="certs-container">
+      <div class="cert-card">
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/google-icon-logo-png-transparent.png" alt="Google" class="cert-logo" loading="lazy" width="40" height="40">
+        <div class="cert-details">
+          <h3>Google Cybersecurity Professional</h3>
+          <p>Google • Credential ID: PC0SFFX9177Z</p>
+        </div>
       </div>
       
-      <!-- Binary rain animation -->
-      <div class="binary-rain" id="terminal-binary"></div>
-      
-      <div class="section-title">TERMINAL</div>
-      <div class="terminal-header">
-        <div class="terminal-icon"></div>
-        <div class="terminal-title">kitty-terminal ~ root@r00tLynx</div>
+      <div class="cert-card">
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/google-icon-logo-png-transparent.png" alt="Google" class="cert-logo" loading="lazy" width="40" height="40">
+        <div class="cert-details">
+          <h3>Google Project Management</h3>
+          <p>Google • Credential ID: 7JW7PP6YO4CT</p>
+        </div>
       </div>
-      <div class="terminal-content" id="terminal-content">
-        <!-- Matrix GIF overlay for terminal glitch effect -->
-        <div class="terminal-glitch-overlay"></div>
+      
+      <div class="cert-card">
+        <img src="https://cloudtech24.com/wp-content/uploads/2022/07/PaloAltoNetworks_Logo_2.png" alt="Palo Alto" class="cert-logo" loading="lazy" width="40" height="40">
+        <div class="cert-details">
+          <h3>Palo Alto Networks Cybersecurity</h3>
+          <p>Palo Alto Networks • Credential ID: SFJD2AW7ZS6V</p>
+        </div>
+      </div>
+      
+      <div class="cert-card">
+        <img src="https://itschool.ro/images/logo-itschool-dark.svg" alt="IT School" class="cert-logo" loading="lazy" width="40" height="40">
+        <div class="cert-details">
+          <h3>IT School Java Developer</h3>
+          <p>IT School • Not Available</p>
+        </div>
+      </div>
+      
+      <div class="cert-card">
+        <img src="https://tcm-sec.com/wp-content/uploads/2021/09/logo.png" alt="TCM Security" class="cert-logo" loading="lazy" width="40" height="40">
+        <div class="cert-details">
+          <h3>Practical Network Penetration Tester</h3>
+          <p>TCM Security • Coming Soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 class="section-heading">Technical Skills</h2>
+    <div class="skills-container">
+      <div>
+        <div class="skills-grid">
+          <div class="skill-tag">Network Security</div>
+          <div class="skill-tag">Linux/Unix</div>
+          <div class="skill-tag">Cloud Security</div>
+          <div class="skill-tag">Penetration Testing</div>
+          <div class="skill-tag">Firewalls</div>
+          <div class="skill-tag">VPN Technology</div>
+          <div class="skill-tag">Burp Suite</div>
+          <div class="skill-tag">Python</div>
+          <div class="skill-tag">Metasploit</div>
+          <div class="skill-tag">Nmap</div>
+          <div class="skill-tag">Bash</div>
+          <div class="skill-tag">PNPT</div>
+          <div class="skill-tag">Cloud Computing</div>
+          <div class="skill-tag">Vulnerability Assessment</div>
+          <div class="skill-tag">NIST Framework</div>
+          <div class="skill-tag">Security Compliance</div>
+          <div class="skill-tag">Security Policy</div>
+          <div class="skill-tag">Social Engineering</div>
+        </div>
         
-        <div>
-          <span class="terminal-prompt">root@r00tLynx $</span>
-          <span class="terminal-command">whoami</span>
+        <h3 class="subtle-section-label">Soft Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-tag">Analytical Thinking</div>
+          <div class="skill-tag">Team Management</div>
+          <div class="skill-tag">Problem-Solving</div>
+          <div class="skill-tag">Communication</div>
+          <div class="skill-tag">Team Collaboration</div>
+          <div class="skill-tag">Leadership</div>
+          <div class="skill-tag">Detail-oriented</div>
+          <div class="skill-tag">Cross-functional</div>
         </div>
-        <div class="terminal-output">cristian_smadu</div>
-        <div>
-          <span class="terminal-prompt">root@r00tLynx $</span>
-          <span class="terminal-command">cat /etc/profile</span>
-        </div>
-        <div class="terminal-output">
-          <span class="highlight">Founder & CEO @ Alcri Technologies</span><br>
-          Cybersecurity & Network Engineering @ Purdue University<br>
-          Passionate about cybersecurity, AI, and full-stack development
-        </div>
-        <div>
-          <span class="terminal-prompt">root@r00tLynx $</span>
-          <span class="terminal-command">ls -la /var/www/certifications/</span>
-        </div>
-        <div class="terminal-output">
-          drwxr-xr-x  2 cristian cristian 4096 Mar  6 10:28 .<br>
-          drwxr-xr-x 12 root     root     4096 Mar  6 10:28 ..<br>
-          -rw-r--r--  1 cristian cristian  220 Mar  6 10:28 <span class="highlight">Google_Cybersecurity.crt</span><br>
-          -rw-r--r--  1 cristian cristian  189 Mar  6 10:28 <span class="highlight">Google_Project_Management.crt</span><br>
-          -rw-r--r--  1 cristian cristian  156 Mar  6 10:28 <span class="highlight">Palo_Alto_Cybersecurity.crt</span><br>
-          -rw-r--r--  1 cristian cristian  143 Mar  6 10:28 <span class="highlight">IT_School_Java.crt</span><br>
-          -rw-r--r--  1 cristian cristian  143 Mar  6 10:28 <span class="highlight">TCM_PNPT.crt</span>
-        </div>
-        <div>
-          <span class="terminal-prompt">root@r00tLynx $</span>
-          <span class="terminal-command">cat /var/www/skills.txt</span>
-        </div>
-        <div class="terminal-output">
-          <span class="highlight">Network Security, Linux/Unix, Cloud Security, Penetration Testing</span><br>
-          <span class="highlight">Firewalls, Virtual Private Networks, Burp Suite, Python</span><br>
-          <span class="highlight">Metasploit, Nmap, Bash, Analytical Thinking, Team Management</span><br>
-          <span class="highlight">Problem-Solving Skills, Communication Skills, Team Collaboration</span><br>
-          <span class="highlight">Leadership, Social Engineering, NIST Cybersecurity Framework</span><br>
-          <span class="highlight">Security Compliance, Security Policy, Vulnerability Assessment</span><br>
-          <span class="highlight">PNPT, Cloud Computing, Detail-oriented, Cross-functional, Incident Response</span>
-        </div>
-        <div>
-          <span class="terminal-prompt">root@r00tLynx $</span>
-          <span class="terminal-command">view_profile</span>
-          <span class="cursor-blink"></span>
-        </div>
+      </div>
+      
+      <div>
+        <!-- Intentionally left empty for asymmetrical layout design -->
       </div>
     </div>
-    
-    <!-- Certifications section with flickering street light effect -->
-    <div class="neon-card" id="certsCard">
-      <!-- Card-specific glitch overlay -->
-      <div class="card-glitch-overlay"></div>
-      
-      <!-- Street light effect with different flickering timing -->
-      <div class="streetlight flicker-2">
-        <div class="neon-bar"></div>
-        <div class="light-cone"></div>
-      </div>
-      
-      <!-- Binary rain animation -->
-      <div class="binary-rain" id="badges-binary"></div>
-      
-      <div class="section-title">CERTIFICATIONS & LICENSES</div>
-      <div class="badge-list">
-        <!-- First row has 3 certifications -->
-        <div class="badge-row-first">
-          <div class="badge" id="cert1">
-            <img src="https://cdn.freebiesupply.com/logos/large/2x/google-icon-logo-png-transparent.png" alt="Google" class="cert-image" />
-            <div class="badge-title">Google Cybersecurity Professional</div>
-            <div class="badge-issuer">Google</div>
-            <div class="badge-id">PC0SFFX9177Z</div>
+  </section>
+
+  <section class="container">
+    <h2 class="section-heading">Experience</h2>
+    <div class="experience-container">
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dates">Nov 2024 - Present</div>
+            <div class="timeline-location">Remote</div>
           </div>
-          <div class="badge" id="cert2">
-            <img src="https://cdn.freebiesupply.com/logos/large/2x/google-icon-logo-png-transparent.png" alt="Google" class="cert-image" />
-            <div class="badge-title">Google Project Management</div>
-            <div class="badge-issuer">Google</div>
-            <div class="badge-id">7JW7PP6YO4CT</div>
-          </div>
-          <div class="badge" id="cert3">
-            <img src="https://cloudtech24.com/wp-content/uploads/2022/07/PaloAltoNetworks_Logo_2.png" alt="Palo Alto" class="cert-image" />
-            <div class="badge-title">Palo Alto Networks Cybersecurity</div>
-            <div class="badge-issuer">Palo Alto Networks</div>
-            <div class="badge-id">SFJD2AW7ZS6V</div>
+          <div class="timeline-content">
+            <h3>Security Researcher <span class="tag">Current</span></h3>
+            <div class="timeline-company">HackerOne</div>
+            <p class="timeline-description">Freelance security researcher focusing on vulnerability assessments and penetration testing for diverse client portfolios.</p>
           </div>
         </div>
         
-        <!-- Second row has 2 certifications centered -->
-        <div class="badge-row-second">
-          <div class="badge" id="cert4">
-            <img src="https://itschool.ro/images/logo-itschool-dark.svg" alt="IT School" class="cert-image" />
-            <div class="badge-title">IT School Java Developer</div>
-            <div class="badge-issuer">IT School</div>
-            <div class="badge-id">Not Available</div>
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dates">Oct 2024 - Present</div>
+            <div class="timeline-location">Remote</div>
           </div>
-          <div class="badge" id="cert5">
-            <img src="https://tcm-sec.com/wp-content/uploads/2021/09/logo.png" alt="TCM Security" class="cert-image" />
-            <div class="badge-title">Practical Network Penetration Tester</div>
-            <div class="badge-issuer">TCM Security</div>
-            <div class="badge-id">Coming Soon...</div>
+          <div class="timeline-content">
+            <h3>CEO <span class="tag">Current</span></h3>
+            <div class="timeline-company">Zyth</div>
+            <p class="timeline-description">Next-Gen Cyber Defense</p>
           </div>
         </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dates">Jan 2025 - Present</div>
+            <div class="timeline-location">West Lafayette, IN</div>
+          </div>
+          <div class="timeline-content">
+            <h3>Polytechnic Ambassador <span class="tag">Current</span></h3>
+            <div class="timeline-company">Purdue University</div>
+            <p class="timeline-description">Representing Purdue Polytechnic Institute through engagement with students, industry leaders, and academic professionals.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dates">Oct 2023 - Nov 2023</div>
+            <div class="timeline-location">Timișoara, Romania</div>
+          </div>
+          <div class="timeline-content">
+            <h3>Cybersecurity Engineer Intern</h3>
+            <div class="timeline-company">OPSWAT</div>
+            <p class="timeline-description">Developed an advanced Docker vulnerability assessment tool to comply with OPSWAT's security standards and enhance protection of containerized environments.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dates">Aug 2024 - Present</div>
+            <div class="timeline-location">West Lafayette, IN</div>
+          </div>
+          <div class="timeline-content">
+            <h3>Student <span class="tag">Current</span></h3>
+            <div class="timeline-company">Purdue University</div>
+            <p class="timeline-description">Double majoring in Cybersecurity & Network Engineering Technology. Minor in Finance.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dates">Jun 2023 - Jul 2023</div>
+            <div class="timeline-location">Timișoara, Romania</div>
+          </div>
+          <div class="timeline-content">
+            <h3>Cybersecurity Help Desk & Engineer Intern</h3>
+            <div class="timeline-company">Elektrobit</div>
+            <p class="timeline-description">Provided cybersecurity support and implemented security enhancements for enterprise systems and networks.</p>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Skills section with flickering street light effect -->
-    <div class="neon-card" id="skillsCard">
-      <!-- Card-specific glitch overlay -->
-      <div class="card-glitch-overlay"></div>
-      
-      <!-- Street light effect with different flickering timing -->
-      <div class="streetlight flicker-3">
-        <div class="neon-bar"></div>
-        <div class="light-cone"></div>
-      </div>
-      
-      <!-- Binary rain animation -->
-      <div class="binary-rain" id="skills-binary"></div>
-      
-      <div class="section-title">TECHNICAL SKILLS</div>
-      <div class="skill-list">
-        <div class="skill skill-color-1">Network Security</div>
-        <div class="skill skill-color-2">Linux/Unix</div>
-        <div class="skill skill-color-3">Cloud Security</div>
-        <div class="skill skill-color-4">Penetration Testing</div>
-        <div class="skill skill-color-5">Firewalls</div>
-        <div class="skill skill-color-6">Virtual Private Networks</div>
-        <div class="skill skill-color-7">Burp Suite</div>
-        <div class="skill skill-color-8">Python</div>
-        <div class="skill skill-color-9">Metasploit</div>
-        <div class="skill skill-color-10">Nmap</div>
-        <div class="skill skill-color-11">Bash</div>
-        <div class="skill skill-color-12">PNPT</div>
-        <div class="skill skill-color-13">Cloud Computing</div>
-        <div class="skill skill-color-14">Vulnerability Assessment</div>
-        <div class="skill skill-color-15">NIST Cybersecurity Framework</div>
-        <div class="skill skill-color-16">Security Compliance</div>
-        <div class="skill skill-color-17">Security Policy</div>
-        <div class="skill skill-color-18">Social Engineering</div>
-      </div>
-      
-      <div class="skills-category">Soft Skills</div>
-      <div class="skill-list">
-        <div class="skill skill-color-19">Analytical Thinking</div>
-        <div class="skill skill-color-20">Team Management</div>
-        <div class="skill skill-color-21">Problem-Solving Skills</div>
-        <div class="skill skill-color-22">Communication Skills</div>
-        <div class="skill skill-color-23">Team Collaboration</div>
-        <div class="skill skill-color-24">Leadership</div>
-        <div class="skill skill-color-25">Detail-oriented</div>
-        <div class="skill skill-color-26">Cross-functional</div>
-        <div class="skill skill-color-27">Incident Response</div>
-      </div>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/cristian-smadu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:chris@smadu.net">Contact</a>
     </div>
+    <div class="footer-copyright">© 2025 Cristian Smadu. All rights reserved.</div>
+  </footer>
 
-    <!-- Experience section with flickering street light effect -->
-    <div class="neon-card" id="experienceCard">
-      <!-- Card-specific glitch overlay -->
-      <div class="card-glitch-overlay"></div>
-      
-      <!-- Street light effect with different flickering timing -->
-      <div class="streetlight flicker-4">
-        <div class="neon-bar"></div>
-        <div class="light-cone"></div>
-      </div>
-      
-      <!-- Binary rain animation -->
-      <div class="binary-rain" id="posts-binary"></div>
-      
-      <div class="section-title">EXPERIENCE</div>
-      
-      <div class="post">
-        <div class="post-title">
-          <img src="https://yt3.googleusercontent.com/IkG1MgdltImzkl1CifA9MqpKCAiytj6k4ORzxB23YQj3haG4XETCozha6uQtz4KQoDSs7kh2Lg=s900-c-k-c0x00ffffff-no-rj" alt="HackerOne" class="company-icon" />
-          <div class="post-title-text">Security Researcher - HackerOne</div>
-        </div>
-        <div class="post-meta">Nov 2024 - Present • 4 mos • Remote</div>
-        <p>
-          Freelance security researcher focusing on vulnerability assessments and
-          penetration testing.
-        </p>
-      </div>
-      
-      <div class="post">
-        <div class="post-title">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl4pVHiFY78AvJD6EXIkgECx-osQH7BuYisQ&s" alt="OPSWAT" class="company-icon" />
-          <div class="post-title-text">Cybersecurity Engineer Intern - OPSWAT</div>
-        </div>
-        <div class="post-meta">Oct 2023 - Nov 2023 • 2 mos • Timișoara, Romania</div>
-        <p>
-          Developed an advanced Docker vulnerability assessment tool to comply with
-          OPSWAT's security standards.
-        </p>
-      </div>
-      
-      <div class="post">
-        <div class="post-title">
-          <img src="https://disco.discowd.com/r/4fu2.jpeg.jpeg" alt="Alcri Technologies" class="company-icon" />
-          <div class="post-title-text">CEO - Alcri Technologies</div>
-        </div>
-        <div class="post-meta">Oct 2024 - Present • 5 mos • Remote</div>
-        <p>
-          Leading Alcri Technologies, focusing on cloud computing and cybersecurity
-          innovations.
-        </p>
-      </div>
-      
-      <div class="post">
-        <div class="post-title">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1200px-Purdue_Boilermakers_logo.svg.png" alt="Purdue" class="company-icon" />
-          <div class="post-title-text">Polytechnic Ambassador - Purdue University</div>
-        </div>
-        <div class="post-meta">Jan 2025 - Present • 2 mos • West Lafayette, IN</div>
-        <p>
-          Representing Purdue Polytechnic Institute, engaging with students, industry
-          leaders, and academics.
-        </p>
-      </div>
-      
-      <div class="post">
-        <div class="post-title">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1200px-Purdue_Boilermakers_logo.svg.png" alt="Purdue" class="company-icon" />
-          <div class="post-title-text">Student - Purdue University</div>
-        </div>
-        <div class="post-meta">Aug 2024 - Present • West Lafayette, IN</div>
-        <p>
-          Double majoring in Cybersecurity &amp; Network Engineering Technology.
-        </p>
-      </div>
-      
-      <div class="post">
-        <div class="post-title">
-          <img src="https://img.electronicdesign.com/files/base/ebm/electronicdesign/image/2021/01/elektrobit_logo.5fff18c522d6e.png?auto=format%2Ccompress&w=640&width=640" alt="Elektrobit" class="company-icon" />
-          <div class="post-title-text">Cybersecurity Help Desk &amp; Engineer Intern - Elektrobit</div>
-        </div>
-        <div class="post-meta">Jun 2023 - Jul 2023 • 2 mos • Timișoara, Romania</div>
-        <p>
-          Provided cybersecurity support and implemented security enhancements.
-        </p>
-      </div>
-    </div>
-  </div>
-  
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Perfect cursor alignment implementation
-      const cursor = document.querySelector('.bitcoin-cursor');
-      
-      // Store the cursor size to ensure proper centering
-      const cursorSize = 35; // Same as CSS width/height
-      
-      document.addEventListener('mousemove', function(e) {
-        // Position cursor element exactly at cursor position
-        cursor.style.left = `${e.clientX - (cursorSize/2)}px`;
-        cursor.style.top = `${e.clientY - (cursorSize/2)}px`;
-      });
-      
-      const splashElement = document.getElementById("splash");
-      
-      // Hide splash screen after loading
-      setTimeout(() => {
-        splashElement.classList.add("fade-out");
-        setTimeout(() => {
-          splashElement.style.display = "none";
-          
-          // Start number counter animations immediately after splash screen disappears
-          startCounterAnimations();
-          
-          // Initialize seamless infinite stats scrolling
-          initSeamlessStatsScroll();
-          
-          // Schedule the massive glitch effect to occur after another 3 seconds
-          setTimeout(() => {
-            triggerMassiveGlitch();
-          }, 3000);
-        }, 500);
-      }, 3000);
-      
-      // All the cards we can glitch
-      const cards = [
-        document.getElementById("terminalCard"),
-        document.getElementById("certsCard"),
-        document.getElementById("skillsCard"),
-        document.getElementById("experienceCard")
-      ];
-      
-      // Profile card (excluded from glitching)
-      const profileCard = document.getElementById("profileCard");
-      
-      // Track when the last glitch happened to avoid glitching too frequently
-      let lastGlitchTime = 0;
-      const minGlitchInterval = 5000; // Minimum 5 seconds between glitches (decreased from 10s)
-      
-      // Function to get the most visible card (excluding profile card)
-      function getMostVisibleCard() {
-        let maxVisibility = 0;
-        let mostVisibleCard = null;
-        
-        // First check all normal cards
-        cards.forEach(card => {
-          if (!card) return;
-          
-          const rect = card.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          // Calculate how much of the card is in the viewport (0 to 1)
-          const visibleTop = Math.max(0, rect.top);
-          const visibleBottom = Math.min(windowHeight, rect.bottom);
-          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-          const visibilityRatio = visibleHeight / rect.height;
-          
-          if (visibilityRatio > maxVisibility) {
-            maxVisibility = visibilityRatio;
-            mostVisibleCard = card;
-          }
+    // Performance optimizations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add support for native lazy loading where available
+      if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+          img.src = img.src;
         });
-        
-        // If no card has good visibility, use the first one as fallback
-        return mostVisibleCard || cards[0];
       }
       
-      // Massive site-wide glitch effect that can happen multiple times
-      function triggerMassiveGlitch() {
-        const now = Date.now();
-        if (now - lastGlitchTime < minGlitchInterval) return;
-        
-        lastGlitchTime = now;
-        const body = document.body;
-        
-        // Find the most visible card (never the profile card)
-        const mostVisibleCard = getMostVisibleCard();
-        
-        // Reset all cards from previous glitches
-        cards.forEach(card => {
-          if (card) card.classList.remove('card-glitching');
+      // Cache page in browser for better performance
+      if ('caches' in window) {
+        caches.open('site-static').then(cache => {
+          cache.addAll([
+            '/',
+            '/index.html',
+            'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap'
+          ]);
         });
-        
-        // Add global glitching class to body
-        body.classList.add('global-glitching');
-        
-        // Glitch the most visible non-profile card
-        if (mostVisibleCard) {
-          mostVisibleCard.classList.add('card-glitching');
-        }
-        
-        // Generate digital artifacts
-        const artifacts = 5;
-        for (let i = 0; i < artifacts; i++) {
-          const artifact = document.createElement('div');
-          artifact.style.position = 'fixed';
-          artifact.style.width = `${Math.random() * 300 + 50}px`;
-          artifact.style.height = `${Math.random() * 3 + 1}px`;
-          artifact.style.background = `rgba(0, 200, 255, ${Math.random() * 0.7 + 0.3})`;
-          artifact.style.left = `${Math.random() * 100}vw`;
-          artifact.style.top = `${Math.random() * 100}vh`;
-          artifact.style.zIndex = '9997';
-          artifact.style.transform = `rotate(${Math.random() * 360}deg)`;
-          document.body.appendChild(artifact);
-          
-          // Remove artifacts after the glitch
-          setTimeout(() => {
-            artifact.remove();
-          }, 900);
-        }
-        
-        // Remove glitching classes after duration
-        setTimeout(() => {
-          body.classList.remove('global-glitching');
-          if (mostVisibleCard) {
-            mostVisibleCard.classList.remove('card-glitching');
-          }
-        }, 1000);
       }
-      
-      // Super fast number shuffling animation that keeps the correct final values
-      function startCounterAnimations() {
-        const statElements = document.querySelectorAll('.stat-value');
-        const finalValues = [32, 24, 432, 14, 0]; // Keep the original values for the first 5 stats
-        
-        // Function to generate random number between min and max
-        function getRandomInt(min, max) {
-          return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        
-        // Start the rapid shuffling for the first 5 stat elements
-        const shuffleInterval = setInterval(() => {
-          for (let i = 0; i < 5; i++) {
-            if (statElements[i]) {
-              // Generate random number for each stat that's reasonable
-              if (finalValues[i] <= 50) {
-                statElements[i].textContent = getRandomInt(1, 99);
-              } else if (finalValues[i] <= 100) {
-                statElements[i].textContent = getRandomInt(10, 150);
-              } else {
-                statElements[i].textContent = getRandomInt(100, 500);
-              }
-            }
-          }
-        }, 50); // Very fast updates (50ms)
-        
-        // After 3 seconds, stop shuffling and show final values
-        setTimeout(() => {
-          clearInterval(shuffleInterval);
-          for (let i = 0; i < 5; i++) {
-            if (statElements[i]) {
-              statElements[i].textContent = finalValues[i];
-            }
-          }
-          
-          // Also set the same values for duplicated stats
-          for (let i = 5; i < statElements.length; i++) {
-            if (statElements[i]) {
-              statElements[i].textContent = finalValues[i - 5];
-            }
-          }
-        }, 3000); // Exactly 3 seconds
-      }
-      
-      // Truly seamless infinite scrolling for stats
-      function initSeamlessStatsScroll() {
-        const slider = document.getElementById('statsSlider');
-        const wrapper = document.querySelector('.stats-wrapper');
-        const statWidth = 175; // Width of each stat box including margin
-        const numStats = 5; // Number of original stats
-        const visibleStats = 3; // Number of visible stats at once
-        const totalWidth = wrapper.offsetWidth;
-        
-        const prevBtn = document.getElementById('statPrev');
-        const nextBtn = document.getElementById('statNext');
-        
-        let currentPosition = 0;
-        let autoScrollInterval;
-        let isPaused = false;
-        
-        // Clone more stats for a truly seamless experience
-        const originalStats = slider.querySelectorAll('.stat');
-        // Ensure we have enough duplicates for a smooth transition
-        for (let i = 0; i < originalStats.length; i++) {
-          const clone = originalStats[i].cloneNode(true);
-          slider.appendChild(clone);
-        }
-        
-        // Auto scroll
-        function startAutoScroll() {
-          autoScrollInterval = setInterval(() => {
-            if (!isPaused) {
-              moveNext(0.5); // Slow automatic scroll
-            }
-          }, 20); // Update very frequently for smooth scrolling
-        }
-        
-        // Move functions
-        function moveNext(speed = 2) {
-          currentPosition += speed;
-          
-          // Check if we need to loop back seamlessly
-          const totalScrollWidth = numStats * statWidth;
-          
-          if (currentPosition >= totalScrollWidth) {
-            // When we've scrolled past all original items, reset to start
-            currentPosition = 0;
-          }
-          
-          updatePosition();
-        }
-        
-        function movePrev(speed = 2) {
-          currentPosition -= speed;
-          
-          const totalScrollWidth = numStats * statWidth;
-          
-          // If we scroll backward beyond the start
-          if (currentPosition < 0) {
-            // Jump to the end position
-            currentPosition = totalScrollWidth;
-          }
-          
-          updatePosition();
-        }
-        
-        function updatePosition() {
-          slider.style.transform = `translateX(-${currentPosition}px)`;
-        }
-        
-        // Button handlers
-        prevBtn.addEventListener('click', () => {
-          isPaused = true;
-          movePrev(10); // Faster scroll on button click
-          
-          // Resume auto-scroll after 2 seconds of inactivity
-          clearTimeout(window.resumeTimeout);
-          window.resumeTimeout = setTimeout(() => {
-            isPaused = false;
-          }, 2000);
-        });
-        
-        nextBtn.addEventListener('click', () => {
-          isPaused = true;
-          moveNext(10); // Faster scroll on button click
-          
-          // Resume auto-scroll after 2 seconds of inactivity
-          clearTimeout(window.resumeTimeout);
-          window.resumeTimeout = setTimeout(() => {
-            isPaused = false;
-          }, 2000);
-        });
-        
-        // Pause on hover
-        wrapper.addEventListener('mouseenter', () => {
-          isPaused = true;
-        });
-        
-        wrapper.addEventListener('mouseleave', () => {
-          isPaused = false;
-        });
-        
-        // Start the auto-scroll
-        startAutoScroll();
-      }
-      
-      // Improved continuous smooth scrolling
-      let isScrolling = false;
-      let animationId = null;
-      
-      // Current state
-      let currentVelocity = 0;
-      let targetPosition = window.scrollY;
-      
-      // Constants
-      const damping = 0.9; // Damping factor for smooth stop (higher = less smooth stop)
-      const acceleration = 0.15; // Acceleration factor (higher = faster response)
-      const minVelocity = 0.5; // Minimum velocity to continue animation
-      
-      function smoothScroll() {
-        // Calculate direction and distance to target
-        const currentPosition = window.scrollY;
-        const delta = targetPosition - currentPosition;
-        
-        // Apply acceleration in the direction of the target
-        currentVelocity += delta * acceleration;
-        
-        // Apply damping to gradually reduce velocity
-        currentVelocity *= damping;
-        
-        // Apply velocity to scroll position
-        if (Math.abs(currentVelocity) > minVelocity || Math.abs(delta) > 1) {
-          window.scrollBy(0, currentVelocity);
-          animationId = requestAnimationFrame(smoothScroll);
-        } else {
-          // Stop the animation when velocity is very low
-          isScrolling = false;
-          currentVelocity = 0;
-          animationId = null;
-        }
-      }
-      
-      // Handle wheel events
-      window.addEventListener('wheel', function(e) {
-        // Update target position based on wheel delta
-        targetPosition += e.deltaY;
-        
-        // Ensure target doesn't go beyond page boundaries
-        targetPosition = Math.max(0, Math.min(targetPosition, document.body.scrollHeight - window.innerHeight));
-        
-        // Start the smooth scrolling animation if not already running
-        if (!isScrolling) {
-          isScrolling = true;
-          animationId = requestAnimationFrame(smoothScroll);
-        }
-        
-        // Prevent default browser scrolling
-        e.preventDefault();
-      }, { passive: false });
-      
-      // Handle touch events for mobile
-      let touchStartY = 0;
-      let touchPreviousY = 0;
-      let touchVelocity = 0;
-      
-      document.addEventListener('touchstart', function(e) {
-        if (animationId) {
-          cancelAnimationFrame(animationId);
-          animationId = null;
-        }
-        
-        isScrolling = false;
-        currentVelocity = 0;
-        
-        touchStartY = e.touches[0].clientY;
-        touchPreviousY = touchStartY;
-        touchVelocity = 0;
-      }, { passive: true });
-      
-      document.addEventListener('touchmove', function(e) {
-        const touchY = e.touches[0].clientY;
-        const deltaY = touchPreviousY - touchY;
-        touchPreviousY = touchY;
-        
-        // Calculate touch velocity
-        touchVelocity = deltaY * 2;
-        
-        // Update scroll position directly for touch
-        window.scrollBy(0, deltaY);
-      }, { passive: true });
-      
-      document.addEventListener('touchend', function() {
-        if (Math.abs(touchVelocity) > 1) {
-          // Use the velocity from touch to continue scrolling with inertia
-          currentVelocity = touchVelocity;
-          isScrolling = true;
-          animationId = requestAnimationFrame(smoothScroll);
-        }
-      }, { passive: true });
-      
-      // Function to create binary rain effect for a specific container
-      function createBinaryRain(containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        
-        // Create binary drops
-        function createDrop() {
-          const drop = document.createElement('div');
-          drop.classList.add('binary-drop');
-          
-          // Randomly choose between 0/1 or other hacker-style characters
-          const characters = ['0', '1', '$', '#', '%', '&', '>', '<', '!', '?', '*'];
-          drop.textContent = characters[Math.floor(Math.random() * characters.length)];
-          
-          // Random position and animation duration
-          const posX = Math.random() * 100;
-          const duration = Math.random() * 2 + 2;
-          
-          drop.style.left = `${posX}%`;
-          drop.style.animationDuration = `${duration}s`;
-          
-          container.appendChild(drop);
-          
-          // Remove drop after animation completes
-          setTimeout(() => {
-            drop.remove();
-          }, duration * 1000);
-        }
-        
-        // Create initial drops
-        for (let i = 0; i < 20; i++) { // More initial drops
-          setTimeout(() => {
-            createDrop();
-          }, i * 100);
-        }
-        
-        // Create new drops more frequently
-        return setInterval(createDrop, 150); // Faster generation (was 200ms)
-      }
-      
-      // Initialize binary rain for each card
-      createBinaryRain('terminal-binary');
-      createBinaryRain('badges-binary');
-      createBinaryRain('skills-binary');
-      createBinaryRain('posts-binary');
-      
-      // Random certificate shining effect
-      const certBoxes = document.querySelectorAll('.badge');
-      let lastShiningIndex = -1;
-      
-      function getRandomCertIndex() {
-        // Get random index that's not the same as the last one
-        let newIndex;
-        do {
-          newIndex = Math.floor(Math.random() * certBoxes.length);
-        } while (newIndex === lastShiningIndex && certBoxes.length > 1);
-        
-        lastShiningIndex = newIndex;
-        return newIndex;
-      }
-      
-      function startShiningEffect() {
-        // Clear all shining classes first
-        certBoxes.forEach(box => {
-          box.classList.remove('shining');
-        });
-        
-        // Add shining class to a random certificate box
-        const randomIndex = getRandomCertIndex();
-        const selectedBox = certBoxes[randomIndex];
-        selectedBox.classList.add('shining');
-        
-        // Wait for animation to complete + 1 second delay before next shine
-        setTimeout(startShiningEffect, 2500); // 1.5s animation + 1s delay
-      }
-      
-      // Start the shining animation after a short delay
-      setTimeout(startShiningEffect, 2000);
-      
-      // Profile image glitch effect
-      const profileNormal = document.getElementById('profile-image');
-      const profileGlitch = document.getElementById('profile-glitch');
-      const profileGlitchAlt = document.getElementById('profile-glitch-alt');
-      const profileScanlines = document.getElementById('profile-scanlines');
-      const avatarContainer = document.querySelector('.avatar-container');
-      
-      // Variable to track if a glitch is currently happening
-      let isGlitching = false;
-      
-      // Function to trigger the glitch effect
-      function triggerGlitchEffect() {
-        // Don't start a new glitch if one is already in progress
-        if (isGlitching) return;
-        
-        isGlitching = true;
-        
-        // Add glitching animation to container
-        avatarContainer.classList.add('glitching');
-        
-        // Show scanlines
-        profileScanlines.style.opacity = '0.8';
-        
-        // Choose which glitch image to use (50/50 chance)
-        const useAltGlitch = Math.random() > 0.5;
-        
-        // Random glitch fragments - quick flashes between images
-        let glitchCount = 0;
-        const maxGlitches = 6;
-        const glitchInterval = setInterval(() => {
-          if (glitchCount < maxGlitches) {
-            // Random glitch effect
-            if (Math.random() > 0.5) {
-              profileNormal.style.opacity = Math.random() > 0.7 ? '0' : '1';
-              if (useAltGlitch) {
-                profileGlitchAlt.style.opacity = profileNormal.style.opacity === '0' ? '1' : '0';
-                profileGlitch.style.opacity = '0';
-              } else {
-                profileGlitch.style.opacity = profileNormal.style.opacity === '0' ? '1' : '0';
-                profileGlitchAlt.style.opacity = '0';
-              }
-            }
-            glitchCount++;
-          } else {
-            clearInterval(glitchInterval);
-            
-            // Show the selected glitch gif for 2 seconds
-            profileNormal.style.opacity = '0';
-            if (useAltGlitch) {
-              profileGlitchAlt.style.opacity = '1';
-              profileGlitch.style.opacity = '0';
-            } else {
-              profileGlitch.style.opacity = '1';
-              profileGlitchAlt.style.opacity = '0';
-            }
-            
-            // Return to normal after 2 seconds
-            setTimeout(() => {
-              // Final glitch transition back to normal
-              let finalGlitchCount = 0;
-              const finalGlitches = 3;
-              const finalGlitchInterval = setInterval(() => {
-                if (finalGlitchCount < finalGlitches) {
-                  // Random final glitches
-                  profileNormal.style.opacity = Math.random() > 0.5 ? '0' : '1';
-                  if (useAltGlitch) {
-                    profileGlitchAlt.style.opacity = profileNormal.style.opacity === '0' ? '1' : '0';
-                  } else {
-                    profileGlitch.style.opacity = profileNormal.style.opacity === '0' ? '1' : '0';
-                  }
-                  finalGlitchCount++;
-                } else {
-                  clearInterval(finalGlitchInterval);
-                  profileNormal.style.opacity = '1';
-                  profileGlitch.style.opacity = '0';
-                  profileGlitchAlt.style.opacity = '0';
-                  profileScanlines.style.opacity = '0';
-                  avatarContainer.classList.remove('glitching');
-                  
-                  // Glitch is complete
-                  isGlitching = false;
-                }
-              }, 100);
-            }, 2000);
-          }
-        }, 100);
-      }
-      
-      // Randomly trigger the glitch effect
-      function scheduleRandomGlitch() {
-        // Random interval between 3 and 10 seconds (much more frequent)
-        const randomInterval = (Math.random() * 7 + 3) * 1000;
-        
-        setTimeout(() => {
-          triggerGlitchEffect();
-          // Schedule the next glitch
-          scheduleRandomGlitch();
-        }, randomInterval);
-      }
-      
-      // Start the random glitch scheduling
-      scheduleRandomGlitch();
-      
-      // Also trigger glitch on hover (optional but cool)
-      avatarContainer.addEventListener('mouseenter', () => {
-        triggerGlitchEffect();
-      });
-      
-      // Handle card hover events to trigger glitches
-      cards.forEach(card => {
-        if (card) {
-          card.addEventListener('mouseenter', () => {
-            triggerMassiveGlitch();
-          });
-        }
-      });
-      
-      // Setup periodic major glitches
-      function scheduleRandomMajorGlitch() {
-        // Random interval between 8 and 15 seconds (more frequent)
-        const randomInterval = (Math.random() * 7000 + 8000);
-        
-        setTimeout(() => {
-          triggerMassiveGlitch();
-          // Schedule the next major glitch
-          scheduleRandomMajorGlitch();
-        }, randomInterval);
-      }
-      
-      // Start scheduling random major glitches after initial one
-      setTimeout(scheduleRandomMajorGlitch, 7000);
-      
-      // Track scroll position for reactive glitches based on scroll
-      let lastScrollY = window.scrollY;
-      let scrollThreshold = 300; // Scroll this much to possibly trigger a glitch
-      
-      window.addEventListener('scroll', () => {
-        // Check if we've scrolled significantly
-        if (Math.abs(window.scrollY - lastScrollY) > scrollThreshold) {
-          // 30% chance of triggering a glitch on significant scroll
-          if (Math.random() < 0.3) {
-            triggerMassiveGlitch();
-          }
-          lastScrollY = window.scrollY;
-        }
-      });
     });
   </script>
 </body>
